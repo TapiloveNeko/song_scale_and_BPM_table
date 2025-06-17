@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音楽データ表</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>音楽データ表</h1>
+    <div class="theme-toggle">
+      <button id="themeToggle">
+        <span id="themeIcon">🌞</span>
+      </button>
+    </div>
+  </header>
+  
+  <div class="sort-container">
+    <button class="sort-button" id="sortButton">並び替え</button>
+    <div class="sort-menu" id="sortMenu">
+      <a href="#" onclick="sortTable(0); closeSortMenu(); return false;">曲名順</a>
+      <a href="#" onclick="sortByScale(); closeSortMenu(); return false;">スケール順</a>
+      <a href="#" onclick="sortTable(2, true); closeSortMenu(); return false;">BPM順</a>
+    </div>
+  </div>
+  
+  <table id="musicTable">
+    <thead>
+      <tr>
+        <th>曲名</th>
+        <th>スケール</th>
+        <th>BPM</th>
+      </tr>
+    </thead>
+    <tbody id="musicTableBody"></tbody>
+  </table>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

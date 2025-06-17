@@ -1,0 +1,207 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --table-bg: #ffffff;
+  --table-border: #ddd;
+  --header-bg: #4169e1;
+  --header-color: #ffffff;
+  --header-active: #00008b;
+  --sort-button-bg: #4169e1;
+  --sort-button-hover: #3a5d97;
+  --sort-menu-bg: #ffffff;
+  --sort-menu-text: #000000;
+  --sort-menu-hover: #f1f1f1;
+  --shadow-color: rgba(0,0,0,0.1);
+}
+
+.dark-mode {
+  --bg-color: #222;
+  --text-color: #ffffff;
+  --table-bg: #333;
+  --table-border: #444;
+  --header-bg: #4169e1;
+  --header-color: #ffffff;
+  --header-active: #00008b;
+  --sort-button-bg: #4169e1;
+  --sort-button-hover: #3a5d97;
+  --sort-menu-bg: #333;
+  --sort-menu-text: #ffffff;
+  --sort-menu-hover: #444;
+  --shadow-color: rgba(0,0,0,0.3);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 3.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--sort-button-bg);
+  color: var(--header-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+#themeToggle:hover {
+  background-color: var(--sort-button-hover);
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: var(--table-bg);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--table-border);
+  transition: border-color 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .sort-button, a, th, td {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sort-button, a, th, td {
+    font-size: 1.5rem;
+  }
+}
+
+th {
+  background-color: var(--header-bg);
+  color: var(--header-color);
+  transition: background-color 0.3s;
+}
+
+th:nth-child(1), td:nth-child(1) {
+  width: 40%;
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 40%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 20%;
+}
+
+th.sort-asc {
+  background-color: var(--header-active);
+}
+
+.sort-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.sort-button {
+  padding: 8px 15px;
+  background-color: var(--sort-button-bg);
+  color: var(--header-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sort-button:hover {
+  background-color: var(--sort-button-hover);
+}
+
+.sort-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--sort-menu-bg);
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px var(--shadow-color);
+  z-index: 1;
+  border-radius: 4px;
+  top: 100%;
+  right: 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .sort-container:hover .sort-menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sort-menu.show {
+    display: block;
+  }
+}
+
+.sort-menu a {
+  color: var(--sort-menu-text);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.sort-menu a:hover {
+  background-color: var(--sort-menu-hover);
+}
